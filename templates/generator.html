@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Generate Bill</title>
+	<style type="text/css">
+		.bg
+		{
+			background-color: #629ad2;
+		}
+
+		.l
+		{
+			height: 75px;
+			width: auto;
+		}
+
+		.i1
+		{
+			height: 175px;
+			width: auto;
+		}
+
+		.me
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+			color: black;
+		}
+
+		.me1
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+			border-style: groove;
+			border-color: #3F94E8;
+			padding-left: 10px;
+		}
+
+		.t1, .t1 td, .t1 th
+		{
+			border: 5px double black;
+			border-collapse: collapse;
+			padding: 20px;
+		}
+
+	</style>
+</head>
+<body class="bg">
+	<table width="100%">
+		<tr>
+			<td style="vertical-align: top; text-align:left;">
+				<div>
+					<img class="l" src="{% static 'images/me.png' %}"> &nbsp
+					<a style="text-decoration:none;" href="{% url 'logout' %}"><i class="me">MUKUL ENTERPRISE</i></a>
+				</div>
+			</td>
+			<td style="text-align:right;" rowspan="2">
+				<div>
+					<img src="{% static 'images/b.png' %}" class="i1">
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<a style="text-decoration:none; color: black; font-size: 20px;" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+	<p class="me1">Bill Details &nbsp <i class="fa fa-file-text" aria-hidden="true"></i></p>
+
+
+	<form method="POST" action="">
+		{% csrf_token %}
+		<table width="67%" align="center" class="t1">
+			<tr>
+				<th>
+					RECIEVER
+				</th>
+			</tr>
+			<tr>
+				<td align="center">
+					{{ form.user }}
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table width="67%" align="center" class="t1">
+			<tr>
+				<th>
+					DISPATCH THROUGH:
+				</th>
+			</tr>
+			<tr>
+				<td align="center">
+					{{ form.transport }}
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table width="67%" align="center" class="t1">
+			<tr>
+				<th colspan="2">
+					PAYMENT METHOD:
+				</th>
+			</tr>
+			<tr style="text-align: center;">
+				<td align="center">
+					{{ form.payment }}
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table hidden="true">
+			<tr>
+				<td align="center">
+					{{ form.tid }}
+				</td>
+			</tr>
+		</table>
+		<br>
+		<br>
+		<table align="right" width="18%" style="margin-right:17%">
+			<tr style="text-align: right;">
+				<th>
+					<a href="{% url 'generate' %}" style="text-decoration: none;"><p style="font-size: 18px; font-family: 'copperplate',fantasy; color: #cf202d;">Clear</p></a>
+				</th>
+				<th>
+					<a href="{% url 'cancel' %}" style="text-decoration: none;"><p style="font-size: 18px; font-family: 'copperplate',fantasy; color: #cf202d;">Cancel</p></a>
+				</th>
+				<th>
+					<input type="submit" value="Create" style="font-size: 18px; font-family: 'copperplate',fantasy;">
+				</th>
+			</tr>
+		</table>
+	</form>
+
+
+</body>
+</html>

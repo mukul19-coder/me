@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Mukul Enterprise</title>
+	<style type="text/css">
+		.bg
+		{
+			background-color: #629ad2;
+		}
+
+		.l
+		{
+			height: 75px;
+			width: auto;
+		}
+
+		.i1
+		{
+			height: 175px;
+			width: auto;
+		}
+
+		.me
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+		}
+
+		.m1
+		{
+			background-color: #cf202d;
+			border-radius: 15px;
+			text-align: center;
+			width: 45%;
+			font-weight: bold;
+		}
+
+		.m1 td
+		{
+			border-bottom: 2px inset black;
+			padding-top: 10px;
+			padding-bottom: 10px;
+		}
+
+		.m1 a:active, a:visited, a:hover
+		{
+			color: black;
+		}
+
+		.m1 a
+		{
+			color: black;
+		}
+
+	</style>
+</head>
+<body class="bg">
+	<table width="100%">
+		<tr>
+			<td style="vertical-align: top; text-align:left;">
+				<div>
+					<img class="l" src="{% static 'images/me.png' %}"> &nbsp
+					<a style="text-decoration:none;" href="{% url 'logout' %}"><i class="me">MUKUL ENTERPRISE</i></a>
+				</div>
+			</td>
+			<td style="text-align:right;" rowspan="2">
+				<div>
+					<img src="{% static 'images/b.png' %}" class="i1">
+				</div>
+			</td>
+		</tr>
+	</table>
+
+	<br>
+
+	<table class="m1" align="center">
+		<tr>
+			<td>
+				<a style="text-decoration: none;" href="{% url 'add_beneficiary' %}">Add Beneficiary</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<a style="text-decoration: none;" href="{% url 'beneficiary' %}">View Beneficiary</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<a style="text-decoration: none;" href="{% url 'addproduct' %}">Add Product</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<a style="text-decoration: none;" href="{% url 'list' %}">View Product</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				<a style="text-decoration: none;" href="{% url 'additem' %}">Generate Bill</a>
+			</td>
+		</tr>
+
+		<tr>
+			<td style="border: none;">
+				<a style="text-decoration: none;" href="{% url 'render_bill' %}">View Bill</a>
+			</td>
+		</tr>
+
+	</table>
+
+</body>
+</html>

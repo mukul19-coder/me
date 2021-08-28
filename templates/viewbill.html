@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>View Bill</title>
+	<style type="text/css">
+		.me
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+			border-style: groove;
+			border-color: #3F94E8;
+			padding-left: 10px;
+		}
+
+		.l
+		{
+			height: 50px;
+			width: auto;
+		}
+
+		.t1 tr
+		{
+			text-align: center;	
+			border: 2px solid black;
+		}
+
+	</style>
+</head>
+<body style="background-color: #2465A5;">
+	<div align="right">
+		<a href="{% url 'menu' %}"><img class="l" src="{% static 'images/me.png' %}"></a>
+	</div>
+
+	<table>
+		<tr>
+			<td rowspan="2">
+				<a style="text-decoration:none; color: black; font-size: 30px;" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</td>
+		</tr>
+		</tr>
+	</table>
+	
+	<table width="50%" align="center" cellspacing="5px;" cellpadding="5px" class="t1" style="border-collapse:collapse;">
+		{% for b in bill %}
+			<tr>
+				<td>
+					{{b}} - {{b.date}}
+				</td>
+				<td>
+					<form method="POST" action="{% url 'render_bill' %}">
+						{% csrf_token %}
+						<input type="hidden" name="billid" value="{{b.invoice_no}}">
+						<button type="submit" style="margin-right: 5%; margin-top: 3%; font-size:18px; font-family: 'Times New Roman', serif; background: none; border:none;">
+							<i class="fa fa-file"></i>
+						</button>
+					</form>
+				</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+</body>
+</html>

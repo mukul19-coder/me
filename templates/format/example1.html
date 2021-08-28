@@ -1,0 +1,202 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>INVOICE {{b.invoice_no}}</title>
+    <style type="text/css">
+        .th1
+        {
+            font-family: "New Century Schoolbook", Times, serif;
+            font-size: 35px;
+            padding-top: 12px;
+        }
+
+        .td1
+        {
+            font-family: "New Century Schoolbook", Times, serif;
+            text-align: center;
+            font-size: 14px;
+            padding-top: 5px;
+        }
+
+        .t
+        {
+            border: 2px solid black;
+        }
+
+        .t2
+        {
+            border: 2px solid black;
+            font-family: "New Century Schoolbook", Times, serif;
+            border-collapse: collapse;
+        }
+
+        .td2
+        {
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <table width="100%">
+        <tr>
+            <td width="15%">
+                <img src="{{f.img.path}}" height="350px">
+            </td>
+            <td>
+                <table width="100%">
+                    <tr class="t" style="border-bottom: 10px solid black; border-right: 10px solid black;">
+                        <th class="th1" colspan="2">
+                            MUKUL ENTERPRISE
+                        </th>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td class="td1" width="81%">
+                            A-40, AMAR COLONY, DR.KASHYAP WALI GALI,
+                        </td>
+                        <td class="td1" style="font-size: 13px;">
+                            M: - +91-9599569148
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="td1" width="81%">
+                            NANGLOI, NEW DELHI-110041
+                        </td>
+                        <td class="td1" rowspan="2" style="border: 2px solid black; font-weight: bold;">
+                            TAX INVOICE
+                        </td>
+                    </tr>
+                    <tr>
+                        <th class="td1">
+                            GSTIN: 07BQDPJ1461N1ZP
+                        </th>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <br>
+    <table class="t2" style="font-size: 15px; padding-top: 5px; padding-left:3px;">
+        <tr style="border-collapse: collapse;">
+            <td width="50%" rowspan="4">
+                <strong>M/S. {{b.user.name}}</strong>
+                <br>
+                {{b.user.add1}}
+                <br>
+                {{b.user.add2}}
+                <br>
+                <strong>GSTIN:</strong>{{b.user.gstin}}
+            </td>
+            <td>
+                <strong>Invoice No.:</strong> <b style="font-size: 13px;">INVOICE {{b.invoice_no}}</b>
+            </td>
+            <td>
+                <strong>Date:</strong> {{b.date}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>LR No.: </strong>-------------
+            </td>
+            <td>
+                <strong>Paid By:-</strong> {{b.payment}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>Dispatch Through:</strong> {{b.transport.name}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <strong>E-WAY Bill No.: {{b.ewaybill}}</strong>
+            </td>
+        </tr>
+    </table>
+    <table class="t">
+        <tr style="padding-top: 5px; height: auto; font-size: 13.5px;" class="td1">
+            <th width="7%">S.No.</th>
+            <th width="34%">Description</th>
+            <th width="10%">Boxes</th>
+            <th>HSN Code</th>
+            <th>Mtr</th>
+            <th>Oty</th>
+            <th>Rate</th>
+            <th>Amount</th>
+        </tr>
+
+        {{h|safe}}
+
+        {{jh2|safe}}
+        <tr class="td1" style="border-bottom: none;">
+            <td colspan="3" style="text-align: left; padding-left: 5px; font-size: 18px;">
+                <strong>MUKUL ENTERPRISE</strong>
+            </td>
+            <td colspan="4" style="text-align: left; padding-left: 5px; border-right: none; font-size: 15px;">
+                <strong>TOTAL</strong>
+            </td>
+            <td style=" border-left: none; font-size: 15px;">
+                {{m}}
+            </td>
+        </tr>
+        <tr style="border-top: none;">
+            <td colspan="3" style="padding-left: 6px; font-size: 14px">
+                <strong>Kotak Mahindra Bank</strong> A/C NO.: 1815003576
+                <br>
+                <strong>IFSC:-</strong> KKBK0004601
+                <br>
+                <strong>BRANCH:-</strong> PEERAGHARI, NEW DELHI                
+            </td>
+            {{h1|safe}}
+        </tr>
+        <tr>
+            <td colspan="3" style="padding-top: 6px; padding-left: 4px; font-size: 14px;">
+                <strong>Rs. {{q1|title}} Only</strong>
+            </td>
+            <td colspan="4" style="padding-top: 6px; padding-left: 4px; font-size: 14px; border-right: none;">
+                <strong>Net Amount:</strong>
+            </td>
+            <td class="td1" style="font-weight: bold; border-left: none;font-size: 15px;">
+                {{q}}
+            </td>
+        </tr>
+    </table>
+    <br>
+    <table>
+        <tr style="padding-top: 4px; padding-left: 4px; font-size: 14px;">
+            <th width="70%" style="text-align: left;">
+                Terms & Conditions:
+            </th>
+            <th width="30%">
+                For MUKUL ENTERPRISE
+            </th>
+        </tr>
+        <tr style="empty-cells: hide; font-size: 12px;">
+            <td>
+                1) No complaint regarding the quality and weight of Crimped-Texturised-Dyed-Twisted etc. No
+                complaint will be entertained after seven days of receipt of goods. Our responsibility regarding
+                the quality of yarn ceases once the goods are converted into cloth. 2) Goods are dispatched at
+                your risk.3) the payment of this bill shall be made within due days falling which compound
+                interest @24% p.a. shall be charged from due date of invoice. 4) Any dispute will be subject to
+                NEW DELHI, DELHI’s jurisdiction. 
+            </td>
+            <td></td>
+        </tr>
+        <tr style="font-size: 14px; padding-top: 5px; empty-cells: hide;">
+            <th style="text-align: left; padding-left: 25px;">
+                ---------------------------------------
+                <br>
+                <p style="padding-left: 70px;">Prepared By</p>
+            </th>
+            <th>
+                Authorized By
+            </th>
+        </tr>
+    </table>
+    
+    
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>ADD ITEM</title>
+	<style type="text/css">
+		.me
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+			border-style: groove;
+			border-color: #3F94E8;
+			padding-left: 10px;
+		}
+
+		.l
+		{
+			height: 50px;
+			width: auto;
+		}	
+
+		.t1 tr
+		{
+			text-align: center;
+		}
+
+		.t1 td
+		{
+			padding: 1%;
+		}
+
+		.t1 th
+		{
+			background-color: #cf202d;
+			width: 10%;
+			padding: 0.5%;
+		}
+
+		.i
+		{
+			width: 50%;
+		}
+
+		.i1
+		{
+			background-color: transparent;
+			border: none;
+			font-size: 20px;
+		}
+
+	</style>
+</head>
+<body style="background-color: #2465A5;">
+	<div align="right">
+		<a href="{% url 'additem' %}"><img class="l" src="{% static 'images/me.png' %}"></a>
+	</div>
+
+	<table>
+		<tr>
+			<td rowspan="2">
+				<a style="text-decoration:none; color: black;" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</td>
+		</tr>
+		</tr>
+	</table>
+	
+	<p class="me">ELASTIC</p>
+
+	<table width="80%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>QUANTITY</th>
+			<th>BOX</th>
+			<th>MTR</th>
+			<th>RATE [With GST]</th>
+			<th>ADD ITEM</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "elastic" %}
+			<form method="POST" action="{% url 'additem' %}">
+			{% csrf_token %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+				<td><input type="text" name="qty" class="i"></td>
+				<td><input type="text" name="box" class="i"></td>
+				<td><input type="text" name="mtr" class="i"></td>
+				<td><input type="text" name="rate" class="i"></td>
+				<td>
+					<input type="hidden" name="pid" value={{p.id}}>
+					<input type="submit" name="+" value="+" class="i1">
+				</td>
+			</tr>
+			</form>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">VELCRO</p>
+
+	<table width="80%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>QUANTITY</th>
+			<th>BOX</th>
+			<th>MTR</th>
+			<th>RATE [With GST]</th>
+			<th>ADD ITEM</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "velcro" %}
+			<form method="POST" action="{% url 'additem' %}">
+			{% csrf_token %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+				<td><input type="text" name="qty" class="i"></td>
+				<td><input type="text" name="box" class="i"></td>
+				<td><input type="text" name="mtr" class="i"></td>
+				<td><input type="text" name="rate" class="i"></td>
+				<td>
+					<input type="hidden" name="pid" value={{p.id}}>
+					<input type="submit" name="+" value="+" class="i1">
+				</td>
+			</tr>
+			</form>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">FOLDER</p>
+
+	<table width="80%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>QUANTITY</th>
+			<th>BOX</th>
+			<th>MTR</th>
+			<th>RATE [With GST]</th>
+			<th>ADD ITEM</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "folder" %}
+			<form method="POST" action="{% url 'additem' %}">
+			{% csrf_token %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+				<td><input type="text" name="qty" class="i"></td>
+				<td><input type="text" name="box" class="i"></td>
+				<td><input type="text" name="mtr" class="i"></td>
+				<td><input type="text" name="rate" class="i"></td>
+
+				<td>
+					<input type="hidden" name="pid" value={{p.id}}>
+					<input type="submit" name="+" value="+" class="i1">
+				</td>
+			</tr>
+			</form>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">DORI</p>
+
+	<table width="80%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>QUANTITY</th>
+			<th>BOX</th>
+			<th>MTR</th>
+			<th>RATE [With GST]</th>
+			<th>ADD ITEM</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "dori" %}
+			<form method="POST" action="{% url 'additem' %}">
+			{% csrf_token %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+				<td><input type="text" name="qty" class="i"></td>
+				<td><input type="text" name="box" class="i"></td>
+				<td><input type="text" name="mtr" class="i"></td>
+				<td><input type="text" name="rate" class="i"></td>
+
+				<td>
+					<input type="hidden" name="pid" value={{p.id}}>
+					<input type="submit" name="+" value="+" class="i1">
+				</td>
+			</tr>
+			</form>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<p class="me">Items In List</p>
+
+	<table width="80%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+			<th>QUANTITY</th>
+			<th>BOX</th>
+			<th>MTR</th>
+			<th>RATE [Without GST]</th>
+			<th>REMOVE ITEM</th>
+		</tr>
+
+		{% for t in items %}
+			<tr>
+				<td>{{t.product.name}}</td>
+				<td>{{t.product.description}}</td>
+				<td>{{t.quantity}}</td>
+				<td>{{t.box}}</td>
+				<td>{{t.mtr}}</td>
+				<td>{{t.rate}}</td>
+				<td>
+					<form method="POST" action="{% url 'delitem' %}">
+						{% csrf_token %}
+						<input type="hidden" name="tid" value={{t.id}}>
+						<button type="submit" style="background-color: transparent; color: blacks; border: none;"><i class="fa fa-trash" aria-hidden="true"></i></button>
+					</form>
+				</td>			
+			</tr>
+		{% endfor %}
+	</table>
+	<br>
+	<table align="right" width="18%" style="margin-right:20%">
+		<tr style="text-align: right;">
+			<th>
+				<a href="{% url 'clearlist' %}" style="text-decoration: none;"><p style="font-size: 18px; font-family: 'copperplate',fantasy; color: #cf202d;">Clear</p></a>
+			</th>
+			<th>
+				<a href="{% url 'cancel' %}" style="text-decoration: none;"><p style="font-size: 18px; font-family: 'copperplate',fantasy; color: #cf202d;">Cancel</p></a>
+			</th>
+			<th>
+				<button style="font-size: 18px; font-family: 'copperplate',fantasy;" onclick="location.href = '{% url 'generate' %}'">Next</button>
+			</th>
+		</tr>
+	</table>
+</body>
+</html>

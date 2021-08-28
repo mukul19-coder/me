@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>Beneficiary</title>
+	<style type="text/css">
+		.me
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+			border-style: groove;
+			border-color: #3F94E8;
+			padding-left: 10px;
+		}
+
+		.l
+		{
+			height: 50px;
+			width: auto;
+		}
+
+		.t1 tr
+		{
+			text-align: center;
+		}
+
+		.t1 th
+		{
+			background-color: #cf202d;
+		}
+	</style>
+</head>
+<body style="background-color: #2465A5;">
+	<div align="right">
+		<a href="{% url 'menu' %}"><img class="l" src="{% static 'images/me.png' %}"></a>
+	</div>
+
+	<table>
+		<tr>
+			<td rowspan="2">
+				<a style="text-decoration:none; color: black;" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</td>
+		</tr>
+	</table>
+	
+	<p class="me">CLIENT &nbsp <i class="fa fa-user" aria-hidden="true"></i></p>
+
+	<table width="90%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>PHONE NUMBER</th>
+			<th>GSTin</th>
+			<th width="30%">ADDRESS</th>
+			<th>GST</th>
+		</tr>
+
+		{% for client in c %}
+			<tr>
+				<td>{{client.name}}</td>
+				<td>{{client.phone}}</td>
+				<td>{{client.gstin}}</td>
+				<td>{{client.add1}}, {{client.add2}}</td>
+				<td>{{client.gst}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">TRANSPORT &nbsp <i class="fa fa-truck" aria-hidden="true"></i></p>
+
+	<table width="90%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>PHONE NUMBER</th>
+			<th>GSTin</th>
+			<th>LOCATION</th>
+			<th width="40%">ADDRESS</th>
+		</tr>
+
+		{% for transport in t %}
+			<tr>
+				<td>{{transport.name}}</td>
+				<td>{{transport.phone}}</td>
+				<td>{{transport.gstin}}</td>
+				<td>{{transport.location}}</td>
+				<td>{{transport.add1}}, {{transport.add2}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+
+</body>
+</html>

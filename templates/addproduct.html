@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>Add Product</title>
+	<style type="text/css">
+		.bg
+		{
+			background-color: #629ad2;
+		}
+
+		.l
+		{
+			height: 50px;
+			width: auto;
+		}
+
+		.i1
+		{
+			height: 175px;
+			width: auto;
+		}
+
+		.t1
+		{
+			font-family: "Courier New", Courier, monospace;
+			font-size: 22px;
+			font-weight: bold;
+			background-color: #cf202d;
+			border-spacing: 20px;
+			border: 5px double black;
+			border-radius: 25px;
+		}
+
+		.q1
+		{
+			text-align: right;
+		}
+
+	</style>
+</head>
+<body class="bg">
+	<table width="100%">
+		<div align="right">
+		<a href="{% url 'menu' %}"><img class="l" src="{% static 'images/me.png' %}"></a>
+	</div>
+
+	<br>
+	<br>
+
+	<form method="POST" action="{% url 'addproduct' %}" autocomplete="off">
+		{% csrf_token %}
+		<table width="70%" align="center" class="t1">
+			<tr>
+				<td>
+					<label>NAME:</label>
+				</td>
+				<td>
+					<select name="name" style="width: 92%; font-size:15px;">
+						<option value="WOVEN NARROW FAB">Woven Narrow Fab</option>
+						<option value="KNITTED NARROW FAB">Knitted Narrow Fab</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>DESCRIPTION:</label>
+				</td>
+				<td>
+					<input type="text" name="desc" style="width: 90%" required="requied">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>CATEGORY:</label>
+				</td>
+				<td>
+					<select name="cat" style="width: 92%; font-size:15px;">
+						<option value="elastic">Elastic</option>
+						<option value="velcro">Velcro</option>
+						<option value="folder">Folder</option>
+						<option value="dori">Dori</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label>HSN:</label>
+				</td>
+				<td>
+					<input type="radio" name="hsn" value="5806">5806
+					<input type="radio" name="hsn" value="6002">6002
+				</td>
+			</tr>
+
+			<tr>
+				<td rowspan="2">
+					<a style="text-decoration:none; color: black;" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+				</td>
+				<td class="q1" colspan="4" rowspan="2">
+					<input type="submit" value="Add Product" style="margin-right: 5%; margin-top: 3%; font-size:18px; font-family: 'Times New Roman', serif;">
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

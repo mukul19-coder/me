@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta charset="utf-8">
+	<title>Product</title>
+	<style type="text/css">
+		.me
+		{
+			font-family: "Copperplate", fantasy;
+			font-size: 22px;
+			border-style: groove;
+			border-color: #3F94E8;
+			padding-left: 10px;
+		}
+
+		.l
+		{
+			height: 50px;
+			width: auto;
+		}
+
+		.t1 tr
+		{
+			text-align: center;
+		}
+
+		.t1 th
+		{
+			background-color: #cf202d;
+			width: 50%;
+		}
+	</style>
+</head>
+<body style="background-color: #2465A5;">
+	<div align="right">
+		<a href="{% url 'menu' %}"><img class="l" src="{% static 'images/me.png' %}"></a>
+	</div>
+
+	<table>
+		<tr>
+			<td rowspan="2">
+				<a style="text-decoration:none; color: black;" href="{% url 'home' %}"><i class="fa fa-home" aria-hidden="true"></i></a>
+			</td>
+		</tr>
+		</tr>
+	</table>
+	
+	<p class="me">ELASTIC</p>
+
+	<table width="60%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "elastic" %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+			</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">VELCRO</p>
+
+	<table width="60%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "velcro" %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+			</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">FOLDER</p>
+
+	<table width="60%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "folder" %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+			</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+	<br>
+	<br>
+
+	<p class="me">DORI</p>
+
+	<table width="60%" align="center" border="2px solid" class="t1">
+		<tr>
+			<th>NAME</th>
+			<th>DESCRIPTION</th>
+		</tr>
+
+		{% for p in product %}
+		{% if p.category == "dori" %}
+			<tr>
+				<td>{{p.name}}</td>
+				<td>{{p.description}}</td>
+			</tr>
+		{% endif %}
+		{% endfor %}
+	</table>
+
+</body>
+</html>
